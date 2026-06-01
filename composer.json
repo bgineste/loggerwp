@@ -1,0 +1,9 @@
+{
+    "name": "bgineste/loggerwp",
+    "description": "Gère la journalisation JS/PHP avec interface d’administration.",
+    "type": "wordpress-muplugin",
+    "version": "1.4.0",
+    "require": {
+        "composer/installers": "^2.0"
+    }
+}
