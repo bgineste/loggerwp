@@ -1,0 +1,36 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const root = document.getElementById("loggerwp-admin-root");
+	
+    root.innerHTML = `
+        <h2>Interface de LoggerWP</h2>
+        <form id="loggerwp-form">
+            <label>Path des logs :</label><br>
+            <input type="text" id="path-logs" value="" /><br><br>
+            <button type="submit">Envoyer</button>
+        </form>
+        <pre id="loggerwp-result"></pre>
+    `;
+
+    document.getElementById("loggerwp-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+		const pathLogs = document.getElementById("path-logs").value;
+
+        const data = new FormData();
+        data.append("action", "loggerwp_def_log_js");
+		data.append("pathLogs", pathLogs);
+
+        fetch(loggerwp_def_ajax.ajax_url, {
+            method: 'POST',
+            body: data
+        })
+        .then(res => res.text())  // CHANGEMENT ICI
+        .then(text => {
+            // Affiche la réponse brute dans la console
+            console.log("Réponse brute :", text);
+/*
+            .then(res => res.json())
+            .then(resp => {
+                document.getElementById("loggerwp-result").textContent = JSON.stringify(resp, null, 2);*/
+            });
+    });
+});
