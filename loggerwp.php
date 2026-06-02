@@ -2,7 +2,7 @@
 /*
 Plugin Name: LoggerWP
 Description: Plugin de journalisation JS/PHP avec interface d'administration.
-Version: 2.0.2
+Version: 2.0.5
 Author: BG
 */
 
